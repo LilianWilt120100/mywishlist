@@ -1,0 +1,17 @@
+{
+	"require":{
+		"slim/slim": "3.*",
+		"illuminate/database": "^5.4.36",
+		"php": ">=7.0.33"
+	},
+
+	"autoload":{
+		"psr-4": {
+			"mywishlist\\" : "src/",
+			"models\\" : "models/",
+			"controls\\" : "controls/",
+			"vues\\" : "vues/",
+			"conf\\" : "conf/"
+		}
+	}
+}
