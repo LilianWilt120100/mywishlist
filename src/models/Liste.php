@@ -9,6 +9,11 @@ class Liste extends Model {
   protected $primaryKey = 'no';
   public $timestamps = false;
 
+  public function Item(){
+    return $this->hasMany('mywishlist\models\Item','liste_id');
+  }
+
+  
 }
 
 ?>
