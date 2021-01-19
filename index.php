@@ -1,9 +1,10 @@
-<?php 
+<?php
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
 use \mywishlist\controls\MonControleur;
+use \mywishlist\controls\ControleurItem;
 
 $config = ['settings' => [
 	'displayErrorDetails' => true,
@@ -17,10 +18,10 @@ $db->bootEloquent();
 $container = new \Slim\Container($config);
 $app = new \Slim\App($container);
 
-$app->get('/'          , MonControleur::class.':accueil'       )->setName('racine'    );
-$app->get('/listes'    , MonControleur::class.':afficherListes')->setName('aff_listes');
-$app->get('/liste/{no}', MonControleur::class.':afficherListe' )->setName('aff_liste' );
-$app->get('/item/{id}' , MonControleur::class.':afficherItem'  )->setName('aff_item'  );
+$app->get('/'          ,  MonControleur::class.':accueil'       )->setName('racine'    );
+$app->get('/listes'    ,  MonControleur::class.':afficherListes')->setName('aff_listes');
+$app->get('/liste/{no}',  MonControleur::class.':afficherListe' )->setName('aff_liste' );
+$app->get('/item/{id}' , ControleurItem::class.':afficherItem'  )->setName('aff_item'  );
 
 $app->get('/nouvelleliste' , MonControleur::class.':formListe'  )->setName('formListe'  );
 $app->post('/nouvelleliste' , MonControleur::class.':newListe'  )->setName('newListe'  );
