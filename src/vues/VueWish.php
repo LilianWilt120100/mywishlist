@@ -29,6 +29,8 @@ class VueWish {
 		$html = "<h2>Item {$i['id']}</h2>";
 		$html .= "<b>Nom:</b> {$i['nom']}<br>";
 		$html .= "<b>Descr:</b> {$i['descr']}<br>";
+		$html .= "<b>Prix:</b> {$i['prix']}<br>";
+		$html .= "<b>URL(option):</b> {$i['URL']}<br>";
 		return $html;
 	}
 

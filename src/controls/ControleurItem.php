@@ -7,7 +7,6 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 use \mywishlist\vues\VueWish;
-use \mywishlist\models\Liste;
 use \mywishlist\models\Item;
 
 class MonControleur {
@@ -28,10 +27,11 @@ class MonControleur {
   public function newItem(Request $rq, Response $rs, $args) : Response {
     // pour enregistrer un item
     $post = $rq->getParsedBody() ;
-    $nom       = filter_var($post['nom']       , FILTER_SANITIZE_STRING) ;
-    $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
-    $prix = filter_var($post['prix'] , FILTER_SANITIZE_STRING) ;
-    $urlExterne = filter_var($post['URL'] , FILTER_SANITIZE_STRING) ;
+		$id          = filter_var($post['id']       , FILTER_SANITIZE_STRING) ;
+		$nom         = filter_var($post['nom']       , FILTER_SANITIZE_STRING) ;
+    $description = filter_var($post['descr'] , FILTER_SANITIZE_STRING) ;
+    $prix        = filter_var($post['prix'] , FILTER_SANITIZE_STRING) ;
+    $urlExterne  = filter_var($post['URL'] , FILTER_SANITIZE_STRING) ;
     $l = new Liste();
     $l->nom = $nom;
     $l->description = $description;
