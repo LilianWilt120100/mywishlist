@@ -5,7 +5,6 @@ namespace mywishlist\controls;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-
 use \mywishlist\models\Liste;
 use \mywishlist\vues\VueWish;
 

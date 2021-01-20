@@ -6,6 +6,7 @@ require 'vendor/autoload.php';
 use \mywishlist\controls\MonControleur;
 use \mywishlist\controls\listeControleur;
 use \mywishlist\controls\ControleurItem;
+// use \mywishlist\models\Liste;
 
 $config = ['settings' => [
 	'displayErrorDetails' => true,
@@ -27,3 +28,4 @@ $app->post('/nouvelleliste', listeControleur::class.':newListe')->setName('newLi
 $app->get('/item/{id}' , ControleurItem::class.':afficherItem'  )->setName('aff_item'  );
 
 $app->run();
+// echo Liste::all();

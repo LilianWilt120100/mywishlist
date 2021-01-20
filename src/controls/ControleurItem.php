@@ -5,11 +5,10 @@ namespace mywishlist\controls;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-
 use \mywishlist\vues\VueWish;
 use \mywishlist\models\Item;
 
-class MonControleur {
+class ControleurItem {
 	private $container;
 
 	public function __construct($container) {
