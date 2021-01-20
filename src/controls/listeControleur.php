@@ -44,5 +44,9 @@ class listeControleur {
 		$url_listes = $this->container->router->pathFor( 'aff_listes' ) ;
 		return $rs->withRedirect($url_listes);
 	}
+  public function formPartage(Request $rq, Response $rs, $args) : Response {
+        $rs->getBody()->write('Test');
+        return $rs;
+  }
 
 }

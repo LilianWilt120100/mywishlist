@@ -91,7 +91,7 @@ FIN;
 		$url_item_2     = $this->container->router->pathFor( 'aff_item' , ['id' => 2] ) ;
 		$url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
 		$url_form_item = $this->container->router->pathFor( 'formItem'              ) ;
-
+		$url_form_partage = $this->container->router->pathFor('formPartage');
 		$html = <<<FIN
 <!DOCTYPE html>
 <html>
@@ -108,6 +108,7 @@ FIN;
 				<li><a href="$url_item_2">Item 2</a></li>
 				<li><a href="$url_form_liste">Nouvelle Liste</a></li>
 				<li><a href="$url_form_item">Nouveau Item</a></li>
+				<li><a href="$url_form_partage">Partager</a></li>
 			</ul>
 		</nav>
     $content

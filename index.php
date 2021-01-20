@@ -25,9 +25,11 @@ $app->get ('/listes',        listeControleur::class.':afficherListes') ->setName
 $app->get ('/liste/{no}',    listeControleur::class.':afficherListe')  ->setName('aff_liste');
 $app->get ('/nouvelleliste', listeControleur::class.':formListe')      ->setName('formListe');
 $app->post('/nouvelleliste', listeControleur::class.':newListe')       ->setName('newListe');
+$app->get('/partage',        listeControleur::class.':formPartage')    ->setName('formPartage');
 $app->get ('/item/{id}' ,    ControleurItem::class.':afficherItem'  )  ->setName('aff_item');
 $app->post('/nouveauItem',   ControleurItem::class.':formItem')        ->setName('formItem');
 $app->get ('/nouveauItem',   ControleurItem::class.':newItem')         ->setName('newItem');
+
 // $app->get ('/',              MonControleur::class.':accueil')       ->setName('racine');
 // $app->get ('/listes',        MonControleur::class.':afficherListes')->setName('aff_listes');
 // $app->get ('/liste/{no}',    MonControleur::class.':afficherListe') ->setName('aff_liste');
