@@ -1,6 +1,6 @@
 <?php
-declare(strict_types=1);
 
+declare(strict_types=1);
 namespace mywishlist\vues;
 
 class VueWish {
@@ -34,6 +34,20 @@ class VueWish {
 		return $html;
 	}
 
+	private function formItem() : string {
+		$url_new_item = $this->container->router->pathFor( 'newItem' ) ;
+		$html = <<<FIN
+<form method="POST" action="$url_new_item">
+	<label>Nom:<br> <input type="text" name="nom"/></label><br>
+	<label>Description: <br><input type="text" name="descr"/></label><br>
+	<label>Prix: <br><input type="number" name="prix"/></label><br>
+	<label>URL (optionnel): <br><input type="url" name="url"/></label><br>
+	<button type="submit">Enregistrer la liste</button>
+</form>
+FIN;
+		return $html;
+	}
+
 	private function formListe() : string {
 		$url_new_liste = $this->container->router->pathFor( 'newListe' ) ;
 		$html = <<<FIN
@@ -49,12 +63,20 @@ FIN;
 	public function render( int $select ) : string {
 
 		switch ($select) {
+			case 0 : { // liste des listes
+				$content = null;
+				break;
+			}
 			case 1 : { // liste des listes
 				$content = $this->lesListes();
 				break;
 			}
 			case 3 : { // un item
 				$content = $this->unItem();
+				break;
+			}
+			case 4 : { // un item
+				$content = $this->formItem();
 				break;
 			}
 			case 5 : { // un item
@@ -68,12 +90,13 @@ FIN;
 		$url_liste_1    = $this->container->router->pathFor( 'aff_liste', ['no' => 1] ) ;
 		$url_item_2     = $this->container->router->pathFor( 'aff_item' , ['id' => 2] ) ;
 		$url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
+		$url_form_item = $this->container->router->pathFor( 'formItem'              ) ;
 
 		$html = <<<FIN
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Exemple</title>
+    <title>My Wish List</title>
   </head>
   <body>
 		<h1><a href="$url_accueil">Wish List</a></h1>
@@ -84,6 +107,7 @@ FIN;
 				<li><a href="$url_liste_1">Liste 1</a></li>
 				<li><a href="$url_item_2">Item 2</a></li>
 				<li><a href="$url_form_liste">Nouvelle Liste</a></li>
+				<li><a href="$url_form_item">Nouveau Item</a></li>
 			</ul>
 		</nav>
     $content
